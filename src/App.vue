@@ -1,25 +1,27 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-</script>
-
 <template>
-  <div class="app">
-    <header>
-      <nav>
-        <RouterLink class="home" to="/">Home</RouterLink> |
-        <RouterLink to="/about">About</RouterLink>
+  <div id="app">
+    <header class="header">
+      <nav class="navbar">
+        <h1 class="logo">Vue App</h1>
+        <ul class="nav-links">
+          <li>
+            <router-link to="/" :class="{ active: $route.name === 'home' }">
+              Home
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/about" :class="{ active: $route.name === 'about' }">
+              About
+            </router-link>
+          </li>
+        </ul>
       </nav>
-      <hr />
     </header>
-
-    <RouterView />
+    <main class="main-content">
+      <router-view />
+    </main>
+    <footer class="footer">
+      &copy; 2025 Vue App. All rights reserved.
+    </footer>
   </div>
 </template>
-
-<style>
-.app {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  padding: 20px;
-}
-</style>
